@@ -1,0 +1,159 @@
+
+.app {
+  min-height: 100vh;
+  padding: 40px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-color: rgb(249, 237, 221);
+  color: rgb(87, 10, 10);
+
+}
+
+h1 {
+  font-size: 30px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.grid-wrapper {
+  width: 100%;
+  height: 50%;
+  overflow: visible;
+}
+
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 100px repeat(7, 1fr);
+  border: 1px solid #b0884c;
+  border-radius: 20px;
+  overflow: hidden;
+  height: max-content;
+}
+
+.header-cell,
+.time-cell,
+.schedule-cell {
+  border: 1px solid #b0884c;
+}
+
+.header-cell {
+  background: #ccaf85;
+  font-weight:bold;
+  text-align: center;
+  padding: 20px;
+}
+
+.time-cell {
+  background: #ddbd90;
+  padding: 20px;
+}
+
+.schedule-cell {
+  background: rgb(248, 238, 226);
+  width: 100%;
+  min-height: 80px;
+  font-size: 16px;
+}
+
+.cell-wrapper {
+  position: relative;
+  min-height: 100px;
+  overflow: visible;
+  border: 1px solid #b0884c;
+}
+
+.cell-wrapper .schedule-cell {
+  width: 100%;
+  min-height: 80px;
+  box-sizing: border-box;
+  padding-right: 90px;
+  border: none;
+}
+
+.subcategory-buttons {
+  display: flex;
+  top: 10px;
+  right: 10px;
+  gap: 6px;
+  padding: 4px;
+  z-index: 5;
+  flex-wrap: wrap;
+}
+
+.subcategory-btn,
+.add-subcategory-btn {
+  display: flex;
+  font-size: 12px;
+  padding: 6px 10px;
+  cursor: pointer;
+  border: 1px solid #b0884c;
+  border-radius: 6px;
+}
+
+.subcategory-panel {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 220px;
+  background: rgb(248, 238, 226);
+  border: 3px solid #b0884c;
+  border-radius: 10px;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15)
+}
+
+.subcategory-group {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 4px;
+}
+
+
+.routine-item{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.r-text{
+  flex: 1;
+  text-align: left;
+}
+
+
+.subcategory-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px;
+  padding-bottom: 6px;
+  font-size: 16px;
+
+}
+
+.subcategory-title {
+  margin: 0;
+  font-size: 16px;
+}
+
+.del-category-btn {
+  display: flex;
+  cursor: pointer; 
+  border: 1px solid #ff5c5c;
+  border-radius: 5px;
+  background: #ff5f5f;
+}
+
+.del-item-btn{
+  display: flex;
+  cursor: pointer;
+  border: 2px solid #ff5c5c;
+  background: #ff5c5c;
+}
+
+.del-item-btn:hover {
+  font-weight: bold;
+}
