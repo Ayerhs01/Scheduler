@@ -4,10 +4,12 @@ import ScheduleCell from "./components/ScheduleCell";
 import {days, times} from "./components/scheduleConstants"
 
 import {
+  editItem,
+  editCategory,
+  deleteItem as delItem,
   addSubcategory as addCategory,
   deleteCategory as delCategory,
   addItemToSubategory as addItem,
-  deleteItem as delItem,
 } from "./utils/Helpers";
 
 
@@ -48,9 +50,8 @@ function App() {
       <h1>Weekly Schedule</h1>
 
       <div className="grid-wrapper">
-
         <div className="schedule-grid">
-          
+  
           {/** Empty top-left corner*/}
           <div className="header-cell"></div>
 
@@ -88,10 +89,17 @@ function App() {
                   tasks={tasks}
                   openCategory={openCategory}
                   setOpenCategory={setOpenCategory}
+                  
                   addSubcategory={(day, time) =>
-                  addCategory(tasks, setTasks, day, time)}
+                    addCategory(tasks, setTasks, day, time)}
                   addItemToSubcategory={(day, time, categoryName) =>
                     addItem(tasks, setTasks, day, time, categoryName)}
+
+                  editCategory={(day, time, categoryName) => 
+                    editCategory(tasks, setTasks, day, time, categoryName)}
+                  editItem={(day, time, categoryName, index) => 
+                    editItem(tasks, setTasks, day, time, categoryName, index)}
+
                   deleteCategory={(day, time, categoryName) =>
                     delCategory(tasks, setTasks, day, time, categoryName)}
                   deleteItem={(day, time, categoryName, index) => 

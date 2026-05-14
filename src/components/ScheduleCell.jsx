@@ -6,8 +6,10 @@ function ScheduleCell({
     setOpenCategory,
     addSubcategory,
     addItemToSubcategory,
-    deleteItem,
+    editCategory,
+    editItem,
     deleteCategory,
+    deleteItem,
 }) {
 
     const cellId = `${day}-${time}`;
@@ -44,24 +46,33 @@ function ScheduleCell({
                                     </h4>
                                 </div>
 
-                                {(category.items||[]).map((item, index) => (
                                     
-                                    <div 
-                                    className="routine-item" 
-                                    key={index}>
-                                    <span className="r-bullet">•</span>
-                                    <span className="r-text">{item}</span>
-                                    <button 
-                                    className="del-item-btn"
-                                    onClick={() =>
-                                        deleteItem(day, time, category.name, index)
-                                    }
-                                    >
-                                        
-                                    </button>
-                                    </div>
-                                    
-                                ))}
+                                <ol className="routine-list">
+                                    {(category.items || []).map((item, index) => (
+                                        <li className="routine-item" key={index}>
+                                            
+                                                <span className="r-text">{item}</span>
+                                            
+                                                    
+                                                    <button 
+                                                        className="edit-item-btn"
+                                                        onClick={() => editItem(day, time, category.name, index)}
+                                                    >
+                                                        Edit
+                                                    </button>
+                                                    
+                                                    
+                                                    <button 
+                                                    className="del-item-btn"
+                                                    onClick={() =>
+                                                        deleteItem(day, time, category.name, index)
+                                                    }
+                                                    ></button>
+                                                
+                                        </li>
+                                    ))}
+                                </ol>
+                                
 
                                 <button
                                     className="add-item-btn"
@@ -70,7 +81,14 @@ function ScheduleCell({
                                 >
                                     + Add item
                                 </button>
-                                    
+                                
+
+                                <button
+                                    className="edit-Category-btn"
+                                    onClick={() => editCategory(day, time, category.name)}
+                                >
+                                    Edit category
+                                </button> 
                             
                                 <button
                                     className="del-category-btn"

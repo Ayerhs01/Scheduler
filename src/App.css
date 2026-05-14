@@ -109,12 +109,28 @@ h1 {
 }
 
 
-.routine-item{
+.routine-list {
+  list-style-type: decimal;
+  margin: 10px 0;
+}
+
+
+.routine-item {
+  display: list-item;
+  justify-content: space-between;
+  align-items: start;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.routine-row {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin: 4px 0;
-  font-size: 14px;
+ 
+}
+
+.routine-actions {
+  display: inline;
 }
 
 .r-text{
@@ -139,6 +155,26 @@ h1 {
   font-size: 16px;
 }
 
+.add-item-btn {
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.edit-Category-btn {
+  border: 1px solid rgb(180, 214, 231);
+  border-radius: 4px;
+  background: rgb(180, 214, 231);
+}
+
+
+.edit-item-btn {
+  flex-shrink: 0;
+  border: 1px solid;
+  border-radius: 5px;
+  margin-left: 12px;
+}
+
+
 .del-category-btn {
   display: flex;
   cursor: pointer; 
@@ -148,10 +184,13 @@ h1 {
 }
 
 .del-item-btn{
-  display: flex;
+  display: inline-flex;
+  flex-shrink: 0;
   cursor: pointer;
+  border-radius: 5px;
   border: 2px solid #ff5c5c;
   background: #ff5c5c;
+  margin-left: 12px;
 }
 
 .del-item-btn:hover {

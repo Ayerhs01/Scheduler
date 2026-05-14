@@ -27,9 +27,41 @@ export function addSubcategory(tasks, setTasks, day, time) {
     });
 }  
 
+
+
+{/**------------------------------------------------------------ */}
+export function editCategory(tasks, setTasks, day, time, oldName) {
+    const cellId = `${day}-${time}`;
+    const newName = prompt("Edit category name:", oldName);
+
+    if (!newName) return;
+
+    const currentCell = tasks[cellId];
+
+    const updatedSub = currentCell.subcategories.map((category) => {
+        if (category.name === oldName) {
+            return {
+                ...category,
+                name: newName,
+            };
+        }
+        return category;
+    });
+
+    setTasks({
+        ...tasks,
+        [cellId]: {
+            ...currentCell,
+            subcategories: updatedSub,   
+        },
+    });
+}
+
+
 {/**------------------------------------------------------------ */}
 
-export function deleteCategory(tasks, setTasks, day, time, categoryName) {
+export function deleteCategory(
+    tasks, setTasks, day, time, categoryName) {
     const cellId = `${day}-${time}`;
     const currentCell = tasks[cellId];
 
@@ -82,6 +114,41 @@ export function addItemToSubategory(
     });
 
 }
+
+{/**------------------------------------------------------------ */}
+export function editItem(
+    tasks, setTasks, day, time, categoryName, index) {
+    
+    const cellId = `${day}-${time}`;
+    const currentCell = tasks[cellId];
+
+    const oldItem = currentCell.subcategories.find((category) => 
+        category.name === categoryName).items[index];
+
+    const newItem = prompt("Edit item:", oldItem);
+
+    if (!newItem) return;
+
+    const updatedSub = currentCell.subcategories.map((category) => {
+        if (category.name === categoryName) {
+            return {
+                ...category,
+                items: category.items.map((item, i) =>
+                i === index ? newItem: item),
+            };
+        }
+        return category;
+    });
+
+    setTasks({
+        ...tasks,
+        [cellId]: {
+            ...currentCell,
+            subcategories: updatedSub,
+        },
+    });
+}
+
 
 
 {/**------------------------------------------------------------ */}
